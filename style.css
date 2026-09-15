@@ -118,15 +118,14 @@ h2 {
 
 }
 
-
 .gallery {
     display: flex;
-    gap: 10px;
     width: 100%;
+    justify-content: space-between;
 }
 
 .gallery img {
-    width: 50%;
+    width: calc(50% - 10px);
     height: auto;
     display: block;
 }

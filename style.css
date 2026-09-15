@@ -66,15 +66,9 @@ nav a {
 /* Hero */
 
 .hero {
-    position: relative;
     width: 100%;
     height: 100vh;
-    min-height: 600px;
-
-    background-image: url("./photo5.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background: url("./photo5.jpg") center center / cover no-repeat;
 }
 
 .hero-logo {

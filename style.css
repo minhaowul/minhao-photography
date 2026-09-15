@@ -110,56 +110,68 @@ nav a {
 /* Work */
 
 .work {
-    padding: 160px 5% 180px;
+    padding: 160px 0 180px;
 }
 
 .work > h2 {
+    margin-left: 5%;
+    margin-bottom: 120px;
+
     font-size: 16px;
     font-weight: 600;
     letter-spacing: 3px;
-    margin-bottom: 100px;
 }
 
 .work-category {
-    width: 50%;
-    margin-bottom: 160px;
-}
+    display: flex;
+    align-items: center;
 
-.work-left {
-    margin-left: 0;
-}
-
-.work-right {
-    margin-left: 45%;
+    width: 100%;
+    margin-bottom: 180px;
 }
 
 .work-category a {
     display: block;
+    width: 62%;
+    flex-shrink: 0;
 }
 
 .work-category img {
+    display: block;
     width: 100%;
     height: auto;
-    display: block;
 }
 
-.work-category h3 {
-    margin: 20px 0 8px;
+.work-info {
+    width: 38%;
+    padding: 0 5%;
+    text-align: center;
+}
+
+.work-info h3 {
+    margin: 0 0 12px;
 
     font-size: 13px;
     font-weight: 600;
     letter-spacing: 2px;
 }
 
-.work-category p {
+.work-info p {
     margin: 0;
 
     font-size: 13px;
     font-weight: 300;
-    line-height: 1.6;
+    line-height: 1.7;
     color: #555;
 }
 
+.work-left {
+    justify-content: flex-start;
+}
+
+.work-right {
+    justify-content: flex-end;
+}
 /* About */
 
 .about {

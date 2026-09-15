@@ -130,7 +130,8 @@ h2 {
 }
 
 .gallery img {
-    width: 100%;
+    width: 80%;
+    max-width: 900px;
     height: auto;
     display: block;
 }

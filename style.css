@@ -125,7 +125,7 @@ h2 {
 }
 
 .gallery img {
-    width: calc(33.333% - 7px);
+    width: calc((100% - 20px) / 3);
     height: auto;
     display: block;
 }

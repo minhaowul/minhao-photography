@@ -170,11 +170,15 @@ h2 {
 /* About */
 
 .about {
+    padding: 160px 5% 180px;
+    max-width: 1000px;
+}
 
-    padding: 150px 5%;
-
-    max-width: 900px;
-
+.about p {
+    font-size: 24px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 850px;
 }
 
 

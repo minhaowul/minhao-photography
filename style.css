@@ -223,3 +223,21 @@ h2 {
     }
 
 }
+
+.hero-nav {
+    position: absolute !important;
+    top: 30px !important;
+    right: 5% !important;
+    left: auto !important;
+    transform: none !important;
+
+    display: flex !important;
+    gap: 40px !important;
+}
+
+.hero-nav a {
+    color: white !important;
+    text-decoration: none !important;
+    font-size: 11px !important;
+    letter-spacing: 2px !important;
+}

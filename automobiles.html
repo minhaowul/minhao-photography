@@ -20,8 +20,11 @@
             font-family: Arial, Helvetica, sans-serif;
         }
 
+        /* Header */
+
         .top {
             padding: 30px 5%;
+
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -37,6 +40,9 @@
 
             border: 1px solid #111;
 
+            color: #111;
+            text-decoration: none;
+
             font-size: 11px;
             letter-spacing: 1px;
         }
@@ -48,6 +54,9 @@
             font-size: 11px;
             letter-spacing: 2px;
         }
+
+
+        /* Title */
 
         .title {
             padding: 100px 5% 80px;
@@ -61,20 +70,163 @@
             letter-spacing: 3px;
         }
 
+
+        /* Gallery */
+
         .gallery {
-            width: 100%;
+            width: 90%;
+            margin: 0 auto 160px;
+
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            column-gap: 4%;
+            row-gap: 130px;
+            align-items: start;
         }
 
-        .gallery img {
+        .photo {
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .photo img {
             display: block;
             width: 100%;
             height: auto;
+
+            transition: opacity 0.3s ease;
+        }
+
+        .photo:hover img {
+            opacity: 0.65;
+        }
+
+
+        /* Different image sizes / positions */
+
+        .photo:nth-child(1) {
+            grid-column: 1 / 7;
+        }
+
+        .photo:nth-child(2) {
+            grid-column: 8 / 13;
+            margin-top: 100px;
+        }
+
+        .photo:nth-child(3) {
+            grid-column: 2 / 8;
+            margin-top: 20px;
+        }
+
+        .photo:nth-child(4) {
+            grid-column: 8 / 12;
+            margin-top: 140px;
+        }
+
+        .photo:nth-child(5) {
+            grid-column: 1 / 7;
+            margin-top: 60px;
+        }
+
+
+        /* Fullscreen photo viewer */
+
+        .viewer {
+            position: fixed;
+            inset: 0;
+
+            background: #fff;
+
+            display: none;
+            align-items: center;
+            justify-content: center;
+
+            z-index: 100;
+        }
+
+        .viewer.active {
+            display: flex;
+        }
+
+        .viewer-content {
+            max-width: 82vw;
+            max-height: 82vh;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            cursor: pointer;
+        }
+
+        .viewer img {
+            display: block;
+
+            max-width: 82vw;
+            max-height: 75vh;
+
+            width: auto;
+            height: auto;
+
+            object-fit: contain;
+        }
+
+        .photo-info {
+            margin-top: 25px;
+
+            text-align: center;
+
+            font-size: 11px;
+            font-weight: 300;
+            letter-spacing: 1.5px;
+
+            color: #555;
+        }
+
+        .photo-info span {
+            margin: 0 10px;
+        }
+
+
+        /* Mobile */
+
+        @media (max-width: 700px) {
+
+            .title {
+                padding: 70px 5% 50px;
+            }
+
+            .gallery {
+                width: 90%;
+
+                display: block;
+
+                margin-bottom: 100px;
+            }
+
+            .photo {
+                margin-bottom: 70px !important;
+            }
+
+            .viewer img {
+                max-width: 90vw;
+                max-height: 70vh;
+            }
+
+            .photo-info {
+                font-size: 10px;
+            }
+
         }
 
     </style>
 </head>
 
+
 <body>
+
+
+    <!-- Header -->
 
     <header class="top">
 
@@ -89,21 +241,121 @@
     </header>
 
 
+    <!-- Title -->
+
     <section class="title">
 
         <h1>AUTOMOBILES</h1>
 
     </section>
 
-<main class="gallery">
 
-    <img src="./photo1.jpg" alt="Automobiles">
-    <img src="./photo7.jpg" alt="Automobiles">
-    <img src="./photo8.jpg" alt="Automobiles">
-    <img src="./photo9.jpg" alt="Automobiles">
-    <img src="./photo10.jpg" alt="Automobiles">
+    <!-- Gallery -->
 
-</main>
+    <main class="gallery">
+
+
+        <div class="photo"
+             data-date="2026.08.15"
+             data-location="Beijing">
+
+            <img src="./photo1.jpg" alt="Automobiles">
+
+        </div>
+
+
+        <div class="photo"
+             data-date="2026.08.20"
+             data-location="Beijing">
+
+            <img src="./photo7.jpg" alt="Automobiles">
+
+        </div>
+
+
+        <div class="photo"
+             data-date="2026.08.22"
+             data-location="Beijing">
+
+            <img src="./photo8.jpg" alt="Automobiles">
+
+        </div>
+
+
+        <div class="photo"
+             data-date="2026.08.25"
+             data-location="Beijing">
+
+            <img src="./photo9.jpg" alt="Automobiles">
+
+        </div>
+
+
+        <div class="photo"
+             data-date="2026.08.28"
+             data-location="Beijing">
+
+            <img src="./photo10.jpg" alt="Automobiles">
+
+        </div>
+
+
+    </main>
+
+
+    <!-- Photo Viewer -->
+
+    <div class="viewer">
+
+        <div class="viewer-content">
+
+            <img src="" alt="">
+
+            <div class="photo-info">
+                <span class="date"></span>
+                <span>—</span>
+                <span class="location"></span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        const photos = document.querySelectorAll(".photo");
+        const viewer = document.querySelector(".viewer");
+        const viewerImage = viewer.querySelector("img");
+        const dateText = viewer.querySelector(".date");
+        const locationText = viewer.querySelector(".location");
+
+        photos.forEach(photo => {
+
+            photo.addEventListener("click", () => {
+
+                const image = photo.querySelector("img");
+
+                viewerImage.src = image.src;
+
+                dateText.textContent = photo.dataset.date;
+                locationText.textContent = photo.dataset.location;
+
+                viewer.classList.add("active");
+
+            });
+
+        });
+
+
+        viewer.addEventListener("click", () => {
+
+            viewer.classList.remove("active");
+
+        });
+
+    </script>
+
 
 </body>
 

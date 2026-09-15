@@ -15,6 +15,10 @@
             box-sizing: border-box;
         }
 
+        html {
+            background: #fff;
+        }
+
         body {
             margin: 0;
             background: #fff;
@@ -29,10 +33,12 @@
 
         .top {
             padding: 30px 5%;
+
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
+
 
         .logo {
             width: 34px;
@@ -53,6 +59,7 @@
             letter-spacing: 1px;
         }
 
+
         .back {
             color: #111;
             text-decoration: none;
@@ -61,8 +68,9 @@
 
             letter-spacing: 2px;
 
-            transition: opacity 0.3s ease;
+            transition: opacity 0.25s ease;
         }
+
 
         .back:hover {
             opacity: 0.5;
@@ -76,6 +84,7 @@
         .title {
             padding: 100px 5% 100px;
         }
+
 
         .title h1 {
             margin: 0;
@@ -92,14 +101,19 @@
         ========================= */
 
         .gallery {
+
             width: 90%;
+
             margin: 0 auto 160px;
 
             column-count: 3;
+
             column-gap: 5%;
         }
 
+
         .photo {
+
             display: inline-block;
 
             width: 100%;
@@ -113,14 +127,18 @@
             overflow: hidden;
         }
 
+
         .photo img {
+
             display: block;
 
             width: 100%;
             height: auto;
 
-            transition: opacity 0.3s ease;
+            transition:
+                opacity 0.3s ease;
         }
+
 
         .photo:hover img {
             opacity: 0.65;
@@ -128,93 +146,110 @@
 
 
         /* =========================
-           FULLSCREEN IMAGE VIEWER
+           VIEWER
         ========================= */
 
         .viewer {
-    position: fixed;
 
-    inset: 0;
+            position: fixed;
 
-    background: rgba(255, 255, 255, 0);
+            inset: 0;
 
-    display: flex;
+            z-index: 1000;
 
-    align-items: center;
-    justify-content: center;
+            display: flex;
 
-    z-index: 1000;
+            align-items: center;
+            justify-content: center;
 
-    visibility: hidden;
-    opacity: 0;
+            background: #fff;
 
-    transition:
-        opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
-        background 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+            visibility: hidden;
 
-    cursor: pointer;
-}
+            opacity: 0;
 
-.viewer.active {
-    visibility: visible;
+            pointer-events: none;
 
-    opacity: 1;
+            transition:
+                opacity 0.4s ease,
+                visibility 0s linear 0.4s;
+        }
 
-    background: rgba(255, 255, 255, 1);
-}
 
-       .viewer-content {
-    max-width: 82vw;
-    max-height: 90vh;
+        .viewer.active {
 
-    display: flex;
+            visibility: visible;
 
-    flex-direction: column;
+            opacity: 1;
 
-    align-items: center;
-    justify-content: center;
+            pointer-events: auto;
 
-    cursor: pointer;
+            transition:
+                opacity 0.4s ease;
+        }
 
-    opacity: 0;
 
-    transform:
-        translateY(35px)
-        scale(0.88);
+        /* =========================
+           VIEWER CONTENT
+        ========================= */
 
-    transition:
-        opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
-        transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
-}
+        .viewer-content {
 
-.viewer.active .viewer-content {
+            max-width: 82vw;
+            max-height: 90vh;
 
-    opacity: 1;
+            display: flex;
 
-    transform:
-        translateY(0)
-        scale(1);
-}
-       .viewer img {
-    display: block;
+            flex-direction: column;
 
-    max-width: 82vw;
-    max-height: 75vh;
+            align-items: center;
+            justify-content: center;
 
-    width: auto;
-    height: auto;
+            opacity: 0;
 
-    object-fit: contain;
+            transform:
+                translate3d(0, 35px, 0)
+                scale(0.90);
 
-    transform: scale(0.96);
+            transition:
+                transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 0.4s ease;
 
-    transition:
-        transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
-}
+            will-change: transform, opacity;
+        }
 
-.viewer.active img {
-    transform: scale(1);
-}
+
+        .viewer.active .viewer-content {
+
+            opacity: 1;
+
+            transform:
+                translate3d(0, 0, 0)
+                scale(1);
+        }
+
+
+        /* =========================
+           LARGE IMAGE
+        ========================= */
+
+        .viewer img {
+
+            display: block;
+
+            max-width: 82vw;
+
+            max-height: 75vh;
+
+            width: auto;
+            height: auto;
+
+            object-fit: contain;
+
+            user-select: none;
+
+            -webkit-user-drag: none;
+        }
 
 
         /* =========================
@@ -222,6 +257,7 @@
         ========================= */
 
         .photo-info {
+
             margin-top: 25px;
 
             text-align: center;
@@ -233,7 +269,10 @@
             letter-spacing: 1.5px;
 
             color: #555;
+
+            min-height: 14px;
         }
+
 
         .photo-info span {
             margin: 0 10px;
@@ -250,15 +289,19 @@
                 padding: 25px 5%;
             }
 
+
             .title {
                 padding: 70px 5% 70px;
             }
+
 
             .title h1 {
                 font-size: 16px;
             }
 
+
             .gallery {
+
                 width: 90%;
 
                 column-count: 2;
@@ -268,23 +311,52 @@
                 margin-bottom: 100px;
             }
 
+
             .photo {
                 margin-bottom: 60px;
             }
 
+
             .viewer img {
+
                 max-width: 90vw;
+
                 max-height: 70vh;
             }
 
+
+            .viewer-content {
+
+                max-width: 90vw;
+            }
+
+
             .photo-info {
+
                 margin-top: 18px;
 
                 font-size: 10px;
             }
 
+
             .photo-info span {
                 margin: 0 6px;
+            }
+
+        }
+
+
+        /* =========================
+           REDUCE MOTION
+        ========================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .viewer,
+            .viewer-content,
+            .photo img {
+
+                transition: none !important;
             }
 
         }
@@ -306,6 +378,7 @@
         <a href="index.html" class="logo">
             LM
         </a>
+
 
         <a href="index.html" class="back">
             BACK
@@ -352,6 +425,7 @@
                 alt="Automobile photograph"
             >
 
+
             <div class="photo-info">
 
                 <span class="date"></span>
@@ -382,9 +456,7 @@
         const photoInfo = {};
 
 
-        /*
-         * PHOTO 1-3
-         */
+        /* PHOTO 1-3 */
 
         for (let i = 1; i <= 3; i++) {
 
@@ -396,11 +468,7 @@
         }
 
 
-        /*
-         * PHOTO 4-5
-         *
-         * No date / location
-         */
+        /* PHOTO 4-5 */
 
         for (let i = 4; i <= 5; i++) {
 
@@ -412,9 +480,7 @@
         }
 
 
-        /*
-         * PHOTO 6-56
-         */
+        /* PHOTO 6-56 */
 
         for (let i = 6; i <= 56; i++) {
 
@@ -426,9 +492,7 @@
         }
 
 
-        /*
-         * PHOTO 57-65
-         */
+        /* PHOTO 57-65 */
 
         for (let i = 57; i <= 65; i++) {
 
@@ -440,9 +504,7 @@
         }
 
 
-        /*
-         * PHOTO 66
-         */
+        /* PHOTO 66 */
 
         photoInfo[66] = {
             date: "2025.12.23",
@@ -450,9 +512,7 @@
         };
 
 
-        /*
-         * PHOTO 67-72
-         */
+        /* PHOTO 67-72 */
 
         for (let i = 67; i <= 72; i++) {
 
@@ -464,9 +524,7 @@
         }
 
 
-        /*
-         * PHOTO 73-79
-         */
+        /* PHOTO 73-79 */
 
         for (let i = 73; i <= 79; i++) {
 
@@ -478,9 +536,7 @@
         }
 
 
-        /*
-         * PHOTO 80
-         */
+        /* PHOTO 80 */
 
         photoInfo[80] = {
             date: "2026.01.26",
@@ -488,9 +544,7 @@
         };
 
 
-        /*
-         * PHOTO 81
-         */
+        /* PHOTO 81 */
 
         photoInfo[81] = {
             date: "2025.10.30",
@@ -498,9 +552,7 @@
         };
 
 
-        /*
-         * PHOTO 82-83
-         */
+        /* PHOTO 82-83 */
 
         for (let i = 82; i <= 83; i++) {
 
@@ -512,9 +564,7 @@
         }
 
 
-        /*
-         * PHOTO 84
-         */
+        /* PHOTO 84 */
 
         photoInfo[84] = {
             date: "2026.03.14",
@@ -522,9 +572,7 @@
         };
 
 
-        /*
-         * PHOTO 85-100
-         */
+        /* PHOTO 85-100 */
 
         for (let i = 85; i <= 100; i++) {
 
@@ -538,7 +586,7 @@
 
 
         /* =========================
-           CREATE ALL PHOTOS
+           CREATE GALLERY
         ========================= */
 
         const gallery =
@@ -550,11 +598,13 @@
             const photo =
                 document.createElement("div");
 
+
             photo.className = "photo";
 
 
             photo.dataset.date =
                 photoInfo[i]?.date || "";
+
 
             photo.dataset.location =
                 photoInfo[i]?.location || "";
@@ -584,14 +634,22 @@
         const viewer =
             document.querySelector(".viewer");
 
+
+        const viewerContent =
+            document.querySelector(".viewer-content");
+
+
         const viewerImage =
             document.querySelector(".viewer img");
+
 
         const dateText =
             document.querySelector(".date");
 
+
         const locationText =
             document.querySelector(".location");
+
 
         const separator =
             document.querySelector(".separator");
@@ -602,59 +660,122 @@
            OPEN VIEWER
         ========================= */
 
+        function openViewer(photo) {
+
+            const image =
+                photo.querySelector("img");
+
+
+            const imageURL =
+                image.src;
+
+
+            /*
+             * Preload the full-size image
+             * before starting the animation.
+             */
+
+            const preload =
+                new Image();
+
+
+            preload.src = imageURL;
+
+
+            /*
+             * Show information immediately.
+             */
+
+            dateText.textContent =
+                photo.dataset.date;
+
+
+            locationText.textContent =
+                photo.dataset.location;
+
+
+            if (
+                !photo.dataset.date &&
+                !photo.dataset.location
+            ) {
+
+                separator.style.display =
+                    "none";
+
+            } else {
+
+                separator.style.display =
+                    "inline";
+
+            }
+
+
+            /*
+             * If the image is already cached,
+             * open immediately.
+             */
+
+            if (preload.complete) {
+
+                showViewer(imageURL);
+
+            } else {
+
+                /*
+                 * Otherwise wait until the image
+                 * has finished loading.
+                 */
+
+                preload.onload = function () {
+
+                    showViewer(imageURL);
+
+                };
+
+            }
+
+        }
+
+
+
+        /* =========================
+           SHOW VIEWER
+        ========================= */
+
+        function showViewer(imageURL) {
+
+            viewerImage.src =
+                imageURL;
+
+
+            viewer.classList.add("active");
+
+
+            document.body.style.overflow =
+                "hidden";
+
+        }
+
+
+
+        /* =========================
+           CLICK ALL PHOTOS
+        ========================= */
+
         const photos =
             document.querySelectorAll(".photo");
 
 
         photos.forEach(photo => {
 
-            photo.addEventListener("click", function () {
+            photo.addEventListener(
+                "click",
+                function () {
 
-                const image =
-                    photo.querySelector("img");
-
-
-                viewerImage.src =
-                    image.src;
-
-                viewerImage.alt =
-                    image.alt;
-
-
-                dateText.textContent =
-                    photo.dataset.date;
-
-
-                locationText.textContent =
-                    photo.dataset.location;
-
-
-                /*
-                 * Hide the separator if
-                 * there is no information
-                 */
-
-                if (
-                    !photo.dataset.date &&
-                    !photo.dataset.location
-                ) {
-
-                    separator.style.display = "none";
-
-                } else {
-
-                    separator.style.display = "inline";
+                    openViewer(photo);
 
                 }
-
-
-                viewer.classList.add("active");
-
-
-                document.body.style.overflow =
-                    "hidden";
-
-            });
+            );
 
         });
 
@@ -664,13 +785,25 @@
            CLOSE VIEWER
         ========================= */
 
-        viewer.addEventListener("click", function () {
+        function closeViewer() {
 
             viewer.classList.remove("active");
 
-            document.body.style.overflow = "";
+            document.body.style.overflow =
+                "";
 
-        });
+        }
+
+
+
+        viewer.addEventListener(
+            "click",
+            function () {
+
+                closeViewer();
+
+            }
+        );
 
 
 
@@ -678,17 +811,21 @@
            ESC KEY
         ========================= */
 
-        document.addEventListener("keydown", function (event) {
+        document.addEventListener(
+            "keydown",
+            function (event) {
 
-            if (event.key === "Escape") {
+                if (
+                    event.key === "Escape" &&
+                    viewer.classList.contains("active")
+                ) {
 
-                viewer.classList.remove("active");
+                    closeViewer();
 
-                document.body.style.overflow = "";
+                }
 
             }
-
-        });
+        );
 
 
     </script>

@@ -666,9 +666,8 @@
                 photo.querySelector("img");
 
 
-            const imageURL =
-                image.src;
-
+           const imageURL =
+    image.src.replace("/webp/", "/large/");
 
             /*
              * Preload the full-size image

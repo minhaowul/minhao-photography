@@ -69,9 +69,7 @@ nav a {
     height: 100vh;
     min-height: 600px;
 
-    background-image: url("./photo1.jpg");
-    background-size: cover;
-    background-position: center;
+    background: #111;
 
     position: relative;
 }

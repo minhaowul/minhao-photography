@@ -130,8 +130,8 @@ h2 {
 }
 
 .gallery img {
-    width: 500px;
-    max-width: 100%;
+    width: 65%;
+    max-width: 800px;
     height: auto;
     display: block;
 }
@@ -229,8 +229,4 @@ h2 {
 
     }
 
-}
-
-.gallery {
-    background: red;
 }

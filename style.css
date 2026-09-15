@@ -132,7 +132,7 @@ h2 {
 }
 
 .gallery img:hover {
-    opacity: 0.75;
+    opacity: 0.5;
 }
 
 .placeholder {

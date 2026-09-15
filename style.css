@@ -212,7 +212,6 @@ nav a {
 
 }
 
-
 /* Mobile */
 
 @media (max-width: 700px) {
@@ -225,14 +224,27 @@ nav a {
         margin-left: 12px;
     }
 
-   .work-category {
-    width: 88%;
-    margin-bottom: 100px;
-}
+    .work {
+        padding: 120px 0 120px;
+    }
 
-.work-right {
-    margin-left: 12%;
-}
+    .work > h2 {
+        margin-left: 5%;
+        margin-bottom: 70px;
+    }
+
+    .work-category {
+        margin-bottom: 100px;
+    }
+
+    .work-category a {
+        width: 88%;
+    }
+
+    .work-info {
+        width: 12%;
+        padding: 0 2%;
+    }
 
     .about p {
         font-size: 16px;

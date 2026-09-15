@@ -92,19 +92,14 @@
         ========================= */
 
         .gallery {
-
             width: 90%;
-
             margin: 0 auto 160px;
 
             column-count: 3;
-
             column-gap: 5%;
         }
 
-
         .photo {
-
             display: inline-block;
 
             width: 100%;
@@ -118,20 +113,14 @@
             overflow: hidden;
         }
 
-
         .photo img {
-
             display: block;
 
             width: 100%;
-
             height: auto;
 
             transition: opacity 0.3s ease;
         }
-
-
-        /* Hover effect */
 
         .photo:hover img {
             opacity: 0.65;
@@ -143,7 +132,6 @@
         ========================= */
 
         .viewer {
-
             position: fixed;
 
             inset: 0;
@@ -153,7 +141,6 @@
             display: none;
 
             align-items: center;
-
             justify-content: center;
 
             z-index: 1000;
@@ -161,16 +148,12 @@
             cursor: pointer;
         }
 
-
         .viewer.active {
             display: flex;
         }
 
-
         .viewer-content {
-
             max-width: 82vw;
-
             max-height: 90vh;
 
             display: flex;
@@ -178,23 +161,18 @@
             flex-direction: column;
 
             align-items: center;
-
             justify-content: center;
 
             cursor: pointer;
         }
 
-
         .viewer img {
-
             display: block;
 
             max-width: 82vw;
-
             max-height: 75vh;
 
             width: auto;
-
             height: auto;
 
             object-fit: contain;
@@ -206,7 +184,6 @@
         ========================= */
 
         .photo-info {
-
             margin-top: 25px;
 
             text-align: center;
@@ -219,7 +196,6 @@
 
             color: #555;
         }
-
 
         .photo-info span {
             margin: 0 10px;
@@ -236,19 +212,15 @@
                 padding: 25px 5%;
             }
 
-
             .title {
                 padding: 70px 5% 70px;
             }
-
 
             .title h1 {
                 font-size: 16px;
             }
 
-
             .gallery {
-
                 width: 90%;
 
                 column-count: 2;
@@ -258,28 +230,20 @@
                 margin-bottom: 100px;
             }
 
-
             .photo {
-
                 margin-bottom: 60px;
             }
 
-
             .viewer img {
-
                 max-width: 90vw;
-
                 max-height: 70vh;
             }
 
-
             .photo-info {
-
                 margin-top: 18px;
 
                 font-size: 10px;
             }
-
 
             .photo-info span {
                 margin: 0 6px;
@@ -333,91 +297,6 @@
 
     <main class="gallery">
 
-
-        <!-- PHOTO 1 -->
-
-        <div
-            class="photo"
-            data-date="2016.5.3"
-            data-location="Beijing"
-        >
-
-            <img
-                src="./photo1.jpg"
-                alt="Automobiles"
-            >
-
-        </div>
-
-
-
-        <!-- PHOTO 7 -->
-
-        <div
-            class="photo"
-            data-date="2016.5.3"
-            data-location="Beijing"
-        >
-
-            <img
-                src="./photo7.jpg"
-                alt="Automobiles"
-            >
-
-        </div>
-
-
-
-        <!-- PHOTO 8 -->
-
-        <div
-            class="photo"
-            data-date="2016.5.3"
-            data-location="Beijing"
-        >
-
-            <img
-                src="./photo8.jpg"
-                alt="Automobiles"
-            >
-
-        </div>
-
-
-
-        <!-- PHOTO 9 -->
-
-        <div
-            class="photo"
-            data-date="2016.5.3"
-            data-location="Beijing"
-        >
-
-            <img
-                src="./photo9.jpg"
-                alt="Automobiles"
-            >
-
-        </div>
-
-
-
-        <!-- PHOTO 10 -->
-
-        <div
-            class="photo"
-            data-date="2016.5.3"
-            data-location="Beijing"
-        >
-
-            <img
-                src="./photo10.jpg"
-                alt="Automobiles"
-            >
-
-        </div>
-
-
     </main>
 
 
@@ -439,7 +318,7 @@
 
                 <span class="date"></span>
 
-                <span>—</span>
+                <span class="separator">—</span>
 
                 <span class="location"></span>
 
@@ -459,21 +338,188 @@
 
 
         /* =========================
-           LOAD PHOTO 11 - PHOTO 100
+           PHOTO INFORMATION
         ========================= */
 
-        const gallery = document.querySelector(".gallery");
+        const photoInfo = {};
 
 
-        for (let i = 11; i <= 100; i++) {
+        /*
+         * PHOTO 1-3
+         */
 
-            const photo = document.createElement("div");
+        for (let i = 1; i <= 3; i++) {
+
+            photoInfo[i] = {
+                date: "2026.09.03",
+                location: "Beijing"
+            };
+
+        }
+
+
+        /*
+         * PHOTO 4-5
+         *
+         * No date / location
+         */
+
+        for (let i = 4; i <= 5; i++) {
+
+            photoInfo[i] = {
+                date: "",
+                location: ""
+            };
+
+        }
+
+
+        /*
+         * PHOTO 6-56
+         */
+
+        for (let i = 6; i <= 56; i++) {
+
+            photoInfo[i] = {
+                date: "2026.05.03",
+                location: "Beijing"
+            };
+
+        }
+
+
+        /*
+         * PHOTO 57-65
+         */
+
+        for (let i = 57; i <= 65; i++) {
+
+            photoInfo[i] = {
+                date: "2026.03.14",
+                location: "Beijing"
+            };
+
+        }
+
+
+        /*
+         * PHOTO 66
+         */
+
+        photoInfo[66] = {
+            date: "2025.12.23",
+            location: "Beijing"
+        };
+
+
+        /*
+         * PHOTO 67-72
+         */
+
+        for (let i = 67; i <= 72; i++) {
+
+            photoInfo[i] = {
+                date: "2026.01.07",
+                location: "Beijing"
+            };
+
+        }
+
+
+        /*
+         * PHOTO 73-79
+         */
+
+        for (let i = 73; i <= 79; i++) {
+
+            photoInfo[i] = {
+                date: "2026.01.22",
+                location: "Macau"
+            };
+
+        }
+
+
+        /*
+         * PHOTO 80
+         */
+
+        photoInfo[80] = {
+            date: "2026.01.26",
+            location: "Hong Kong"
+        };
+
+
+        /*
+         * PHOTO 81
+         */
+
+        photoInfo[81] = {
+            date: "2025.10.30",
+            location: "Beijing"
+        };
+
+
+        /*
+         * PHOTO 82-83
+         */
+
+        for (let i = 82; i <= 83; i++) {
+
+            photoInfo[i] = {
+                date: "2026.01.22",
+                location: "Macau"
+            };
+
+        }
+
+
+        /*
+         * PHOTO 84
+         */
+
+        photoInfo[84] = {
+            date: "2026.03.14",
+            location: "Beijing"
+        };
+
+
+        /*
+         * PHOTO 85-100
+         */
+
+        for (let i = 85; i <= 100; i++) {
+
+            photoInfo[i] = {
+                date: "2026.09.03",
+                location: "Beijing"
+            };
+
+        }
+
+
+
+        /* =========================
+           CREATE ALL PHOTOS
+        ========================= */
+
+        const gallery =
+            document.querySelector(".gallery");
+
+
+        for (let i = 1; i <= 100; i++) {
+
+            const photo =
+                document.createElement("div");
 
             photo.className = "photo";
 
-            photo.dataset.date = "2016.5.3";
 
-            photo.dataset.location = "Beijing";
+            photo.dataset.date =
+                photoInfo[i]?.date || "";
+
+            photo.dataset.location =
+                photoInfo[i]?.location || "";
 
 
             photo.innerHTML = `
@@ -497,10 +543,8 @@
            VIEWER ELEMENTS
         ========================= */
 
-        const viewer = document.querySelector(".viewer");
-
-        const viewerContent =
-            document.querySelector(".viewer-content");
+        const viewer =
+            document.querySelector(".viewer");
 
         const viewerImage =
             document.querySelector(".viewer img");
@@ -511,64 +555,70 @@
         const locationText =
             document.querySelector(".location");
 
-
-
-        /* =========================
-           OPEN PHOTO
-        ========================= */
-
-        function openViewer(photo) {
-
-            const image =
-                photo.querySelector("img");
-
-
-            viewerImage.src = image.src;
-
-            viewerImage.alt = image.alt;
-
-
-            dateText.textContent =
-                photo.dataset.date;
-
-
-            locationText.textContent =
-                photo.dataset.location;
-
-
-            viewer.classList.add("active");
-
-
-            document.body.style.overflow = "hidden";
-
-        }
+        const separator =
+            document.querySelector(".separator");
 
 
 
         /* =========================
-           ALL PHOTOS CLICK EVENT
+           OPEN VIEWER
         ========================= */
 
-        function setupPhotoEvents() {
-
-            const photos =
-                document.querySelectorAll(".photo");
+        const photos =
+            document.querySelectorAll(".photo");
 
 
-            photos.forEach(photo => {
+        photos.forEach(photo => {
 
-                photo.addEventListener("click", function () {
+            photo.addEventListener("click", function () {
 
-                    openViewer(photo);
+                const image =
+                    photo.querySelector("img");
 
-                });
+
+                viewerImage.src =
+                    image.src;
+
+                viewerImage.alt =
+                    image.alt;
+
+
+                dateText.textContent =
+                    photo.dataset.date;
+
+
+                locationText.textContent =
+                    photo.dataset.location;
+
+
+                /*
+                 * Hide the separator if
+                 * there is no information
+                 */
+
+                if (
+                    !photo.dataset.date &&
+                    !photo.dataset.location
+                ) {
+
+                    separator.style.display = "none";
+
+                } else {
+
+                    separator.style.display = "inline";
+
+                }
+
+
+                viewer.classList.add("active");
+
+
+                document.body.style.overflow =
+                    "hidden";
 
             });
 
-        }
-
-
-        setupPhotoEvents();
+        });
 
 
 
@@ -577,23 +627,6 @@
         ========================= */
 
         viewer.addEventListener("click", function () {
-
-            viewer.classList.remove("active");
-
-            document.body.style.overflow = "";
-
-        });
-
-
-
-        /* =========================
-           PREVENT IMAGE CLICK FROM
-           DOING ANYTHING EXTRA
-        ========================= */
-
-        viewerImage.addEventListener("click", function (event) {
-
-            event.stopPropagation();
 
             viewer.classList.remove("active");
 

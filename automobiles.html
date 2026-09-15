@@ -613,7 +613,7 @@
             photo.innerHTML = `
 
                 <img
-                    src="./webp/photo${i}.webp"
+                   src="./photo${i}.webp"
                     alt="Automobiles"
                     loading="lazy"
                 >
@@ -667,7 +667,10 @@
 
 
            const imageURL =
-    image.src.replace("/webp/", "/large/");
+    image.src.replace(
+        /photo(\d+)\.webp/,
+        "large/photo$1.webp"
+    );
 
             /*
              * Preload the full-size image

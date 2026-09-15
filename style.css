@@ -121,8 +121,16 @@ nav a {
 }
 
 .work-category {
-    width: 65%;
-    margin-bottom: 140px;
+    width: 50%;
+    margin-bottom: 160px;
+}
+
+.work-left {
+    margin-left: 0;
+}
+
+.work-right {
+    margin-left: 45%;
 }
 
 .work-category a {
@@ -150,14 +158,6 @@ nav a {
     font-weight: 300;
     line-height: 1.6;
     color: #555;
-}
-
-.work-left {
-    margin-left: 0;
-}
-
-.work-right {
-    margin-left: 30%;
 }
 
 /* About */

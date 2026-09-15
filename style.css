@@ -106,7 +106,6 @@ nav a {
     letter-spacing: 2px;
 }
 
-
 /* Work */
 
 .work {
@@ -209,10 +208,6 @@ h2 {
 
     nav a {
         margin-left: 12px;
-    }
-
-    .hero {
-        padding: 25px;
     }
 
     .gallery {

@@ -589,42 +589,45 @@
            CREATE GALLERY
         ========================= */
 
-        const gallery =
-            document.querySelector(".gallery");
+        const gallery = document.querySelector(".gallery");
 
+for (let i = 1; i <= 100; i++) {
 
-        for (let i = 1; i <= 100; i++) {
+    const photo = document.createElement("div");
 
-            const photo =
-                document.createElement("div");
+    photo.className = "photo";
 
+    photo.dataset.date = photoInfo[i]?.date || "";
+    photo.dataset.location = photoInfo[i]?.location || "";
+    photo.dataset.number = i;
 
-            photo.className = "photo";
+    photo.innerHTML = `
+        <img
+            src="./photo${i}.webp"
+            alt="Automobiles"
+            loading="lazy"
+        >
+    `;
 
+    const img = photo.querySelector("img");
 
-            photo.dataset.date =
-                photoInfo[i]?.date || "";
+    img.addEventListener("error", function () {
+        photo.innerHTML = `
+            <div style="
+                padding: 50px 10px;
+                text-align: center;
+                font-size: 11px;
+                letter-spacing: 1px;
+                color: #999;
+                border: 1px solid #ddd;
+            ">
+                PHOTO ${i} — IMAGE NOT FOUND
+            </div>
+        `;
+    });
 
-
-            photo.dataset.location =
-                photoInfo[i]?.location || "";
-
-
-            photo.innerHTML = `
-
-                <img
-                   src="./photo${i}.webp"
-                    alt="Automobiles"
-                    loading="lazy"
-                >
-
-            `;
-
-
-            gallery.appendChild(photo);
-
-        }
-
+    gallery.appendChild(photo);
+}
 
 
         /* =========================

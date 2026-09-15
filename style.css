@@ -241,3 +241,10 @@ h2 {
     font-size: 11px !important;
     letter-spacing: 2px !important;
 }
+
+.hero {
+    background-image: url("./photo4.jpg") !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}

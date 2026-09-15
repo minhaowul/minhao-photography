@@ -213,14 +213,14 @@ nav a {
         margin-left: 12px;
     }
 
-    .work-category {
-        width: 90%;
-        margin-bottom: 90px;
-    }
+   .work-category {
+    width: 88%;
+    margin-bottom: 100px;
+}
 
-    .work-right {
-        margin-left: 10%;
-    }
+.work-right {
+    margin-left: 12%;
+}
 
     .about p {
         font-size: 16px;

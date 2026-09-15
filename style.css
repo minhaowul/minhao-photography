@@ -76,9 +76,19 @@ nav a {
     top: 30px;
     left: 5%;
 
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid white;
+
     color: white;
-    font-size: 14px;
-    letter-spacing: 2px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1px;
 
     z-index: 2;
 }

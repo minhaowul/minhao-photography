@@ -132,51 +132,89 @@
         ========================= */
 
         .viewer {
-            position: fixed;
+    position: fixed;
 
-            inset: 0;
+    inset: 0;
 
-            background: #fff;
+    background: rgba(255, 255, 255, 0);
 
-            display: none;
+    display: flex;
 
-            align-items: center;
-            justify-content: center;
+    align-items: center;
+    justify-content: center;
 
-            z-index: 1000;
+    z-index: 1000;
 
-            cursor: pointer;
-        }
+    visibility: hidden;
+    opacity: 0;
 
-        .viewer.active {
-            display: flex;
-        }
+    transition:
+        opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+        background 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 
-        .viewer-content {
-            max-width: 82vw;
-            max-height: 90vh;
+    cursor: pointer;
+}
 
-            display: flex;
+.viewer.active {
+    visibility: visible;
 
-            flex-direction: column;
+    opacity: 1;
 
-            align-items: center;
-            justify-content: center;
+    background: rgba(255, 255, 255, 1);
+}
 
-            cursor: pointer;
-        }
+       .viewer-content {
+    max-width: 82vw;
+    max-height: 90vh;
 
-        .viewer img {
-            display: block;
+    display: flex;
 
-            max-width: 82vw;
-            max-height: 75vh;
+    flex-direction: column;
 
-            width: auto;
-            height: auto;
+    align-items: center;
+    justify-content: center;
 
-            object-fit: contain;
-        }
+    cursor: pointer;
+
+    opacity: 0;
+
+    transform:
+        translateY(35px)
+        scale(0.88);
+
+    transition:
+        opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.viewer.active .viewer-content {
+
+    opacity: 1;
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+       .viewer img {
+    display: block;
+
+    max-width: 82vw;
+    max-height: 75vh;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+
+    transform: scale(0.96);
+
+    transition:
+        transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.viewer.active img {
+    transform: scale(1);
+}
 
 
         /* =========================
